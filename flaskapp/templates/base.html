@@ -1,0 +1,17 @@
+<html>
+    <head>
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>logan's blog</title>
+    {% endif %}
+    </head>
+    <body>
+        <nav>
+        <a href="{{ url_for('index') }}">blog</a>
+        <a href="{{ url_for('career') }}">hire me</a>
+        </nav>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
