@@ -11,7 +11,7 @@ serfdom.
 In the past I've tried to use wordpress as a blogging platform, but I never
 really got into it. There are a couple reasons for this.
 
-1. All the plugins be overwhelming
+1. All the plugins can be overwhelming
 2. Creating your own themes is pretty intense
 3. I don't like using the WYSIWYG editor
 
