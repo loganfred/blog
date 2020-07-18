@@ -4,12 +4,29 @@
         <h1>logan's blog</h1>
         <p> these are the posts available <p>
         <div>
-            <ol>
-            {% for num, article in articles.items() %}
-            <li>
-            <a href="{{ url_for('blog_read', post=article['path'])}}">
-            {{ article['title'] }}</a></li>
-        {% endfor %}
-            </ol>
-        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">article</th>
+                <th scope="col">date</th>
+                <th scope="col">tags</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+            <tr>
+            <td>
+            <a href="{{ url_for('blog_read', post=article['id'])}}">
+            {{ article['title'] }}</a>
+            </td>
+            <td>
+            {{ article['date'] }}
+            </td>
+            <td>
+            {{ article['keywords'] }}
+            </td>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
 {% endblock %}
