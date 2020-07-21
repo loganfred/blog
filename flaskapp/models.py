@@ -28,7 +28,9 @@ class Database:
 
         p = BeautifulSoup(open(name, 'r'), 'html.parser')
 
-        m = {t.get('name'): t.get('content') for t in p.find_all('meta') if t.get('name') is not None}
+        md = {t.get('name'): t.get('content') for t in p.find_all('meta') if t.get('name') is not None}
+
+        c = '\n'.join([tag.prettify() for tag in p.find('head').findChildren(recursive=False)])
 
         t = p.title.string
 
@@ -36,9 +38,11 @@ class Database:
 
         c = '\n'.join([tag.prettify() for tag in p.find('body').findChildren(recursive=False)])
 
+        m = '\n'.join([tag.prettify() for tag in p.find_all('meta')])
+
         html = p.prettify(formatter='html')
 
-        return dict(html=html, date=d, title=t, content=c, assets=a, **m)
+        return dict(html=html, date=d, meta=m, title=t, content=c, assets=a, **md)
 
     def get_article_by_id(self, id):
         return self.articles[id]

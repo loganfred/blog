@@ -1,32 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <h1>logan's blog</h1>
-        <p> these are the posts available <p>
-        <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">article</th>
-                <th scope="col">date</th>
-                <th scope="col">tags</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for article in articles %}
-            <tr>
-            <td>
-            <a href="{{ url_for('blog_read', post=article['id'])}}">
-            {{ article['title'] }}</a>
-            </td>
-            <td>
-            {{ article['date'] }}
-            </td>
-            <td>
-            {{ article['keywords'] }}
-            </td>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-auto mb-3">
+            <div class="card article-card">
+              <div class="card-body">
+                <h5 class="card-title"> {{ article['title'] }}</h5>
+                <h5 class="card-subtitle mb-2 text-muted"> {{ article['date'] }}</h5>
+                <p class="card-text"> {{ article['content'][:200] + '...'}} </p>
+                <a class="btn btn-primary text-light" href="{{ url_for('blog_read', post=article['id'])}}">Read</a>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
     </div>
+
 {% endblock %}

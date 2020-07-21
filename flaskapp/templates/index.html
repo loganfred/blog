@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>hello world</h1>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid rounded mx-auto d-block mb-3" src="https://via.placeholder.com/640x480">
+        </div>
+        <div class="col-md-8">
+        <p>
+        My name is Logan Frederick and this is my website.
+        </p>
+        <p>
+        I read, watch, write, code, build, think, draw, and learn. I started
+        this website as a demo project for my Github portfolio in 2020 when I
+        was worried COVID19 might put me out of a job. I never really intended
+        to actually deploy it, yet here we are.
+        </p>
+        <p>
+        This website contains short and long form
+        <a href="{{url_for('blog') }}"> blog posts</a>
+        as well as my digitized
+        <a href="{{url_for('zettelkasten') }}"> zettelkasten</a>, which is
+        essentially a collection of interellated notes. It's a cool experiment
+        because it lets you see both the research and final product of my
+        interests and writings. For more information on how I built the site
+        you can read this comprehensive
+        <a href="#"> write-up</a>.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

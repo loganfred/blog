@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
+{% block head %}
+{{ super() }}
+{{ article.meta|safe }}
+{% endblock %}
+
+
 {% block content %}
     {{ article.content|safe }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='node_modules/progressbar/progressbar.js')}}"></script>
 {% endblock %}

@@ -1,32 +1,55 @@
 {% from 'bootstrap/utils.html' import render_static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {% block head %}
 
-<html>
-    <head>
-    {% if title %}
-        <title>{{ title }}</title>
-    {% else %}
-        <title>logan's blog</title>
-    {% endif %}
-    {% block styles %}
-    {{ bootstrap.load_css() }}
-    {{ render_static('css', 'css/main.css') }}
-    {% endblock %}
-    </head>
-    <body>
-        {% from 'bootstrap/nav.html' import render_nav_item %}
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>loganf.com</title>
+  {% endif %}
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">loganf.com</a>
-            <div class="navbar-nav mr-auto">
-                {{ render_nav_item('index', 'blog') }}
-                {{ render_nav_item('career', 'hire me') }}
-            </div>
-        </nav>
-        <div class="container">
-            {% block content %}{% endblock %}
+  {% block styles %}
+  {{ bootstrap.load_css() }}
+  {{ render_static('css', 'css/main.css') }}
+  {{ render_static('css', 'https://fonts.googleapis.com/css?family=Libre-Baskerville', local=False) }}
+  {% endblock %}
+
+  {% endblock %}
+  </head>
+  <body>
+  {% from 'bootstrap/nav.html' import render_nav_item %}
+
+  <div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-transparent">
+    <div class="navbar-nav nav-fill w-100">
+      {{ render_nav_item('index', 'loganf.com') }}
+      {{ render_nav_item('blog', 'articles') }}
+      {{ render_nav_item('zettelkasten', 'zettelkasten') }}
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          other
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="{{ url_for('apis') }}">apis</a>
+          <a class="dropdown-item" href="{{ url_for('recipes') }}">recipes</a>
+          <a class="dropdown-item" href="{{ url_for('todo') }}">todo</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('hiring') }}">hire me</a>
         </div>
-        {% block scripts %}
-        {{ bootstrap.load_js() }}
-        {% endblock %}
-    </body>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+  <div class="container maincontent px-md-5">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}
+  {{ bootstrap.load_js() }}
+  {% endblock %}
+
+  </body>
 </html>

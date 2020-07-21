@@ -1,5 +1,35 @@
-a:link {
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link {
     color: black;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+
+body {
+    font-family: "Libre Baskerville", "Times New Roman", Times, serif;
+}
+
+table {
+    font-size: 16px;
+}
+
+.maincontent {
+    padding-top: 50px;
+}
+
+.article-card {
+    width: 30rem;
+}
+
+a:link {
+    color: blue;
     }
 
 a:visited {
