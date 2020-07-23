@@ -36,7 +36,7 @@ def recipes():
 
 @app.route('/todo')
 def todo():
-    return render_template('todo.html', title='todo')
+    return render_template('todo.html', title='todo', todo=db.todo)
 
 @app.route('/hiring')
 def hiring():

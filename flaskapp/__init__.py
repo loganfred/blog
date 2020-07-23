@@ -10,6 +10,6 @@ app.config.from_object(Config)
 
 from . import models
 
-db = models.Database(os.path.join(os.path.dirname(__file__), 'articles'))
+db = models.Database()
 
 from . import routes
