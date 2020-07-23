@@ -40,9 +40,11 @@ class Database:
 
         m = '\n'.join([tag.prettify() for tag in p.find_all('meta')])
 
+        s = '\n'.join([tag.prettify() for tag in p('p', class_=None) ])[:200]+'...'
+
         html = p.prettify(formatter='html')
 
-        return dict(html=html, date=d, meta=m, title=t, content=c, assets=a, **md)
+        return dict(html=html, preview=s, date=d, meta=m, title=t, content=c, assets=a, **md)
 
     def get_article_by_id(self, id):
         return self.articles[id]
@@ -76,3 +78,4 @@ class Database:
                 print('\n', key, ':\n')
                 print(article[key])
                 print()
+
