@@ -1,6 +1,8 @@
 diy cms server project
 ======================
 
+**At least for now this is a solo project while I figure out how to use the Github site.**
+
 rationale
 ---------
 
