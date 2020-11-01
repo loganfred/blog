@@ -1,43 +1,65 @@
+from flask import send_from_directory
 from flask import render_template
+import os
 
-from . import db
 from . import app
+from . import db
+from .models import meta_from_dict
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
 
-@app.route('/articles')
-def blog():
-    articles = db.articles
-    return render_template('blog.html',
-                           title='articles',
-                           articles=articles)
+@app.route('/writings/')
+def writings():
 
-@app.route('/articles/<int:post>')
-def blog_read(post):
-    article = db.get_article_by_id(post)
-    return render_template('article.html',
-                           title=article['title'],
-                           article=article)
+    template = os.path.join('content', 'writings', 'index.html')
 
-@app.route('/zettelkasten')
-def zettelkasten():
-    return render_template('zettelkasten.html', title='zettelkasten')
+    return render_template(template)
 
-@app.route('/apis')
-def apis():
-    return render_template('apis.html', title='apis')
+@app.route('/writings/<path:path>')
+def writing(path):
 
-@app.route('/recipes')
+    template = os.path.join('content', 'writings', path)
+
+    return render_template(template)
+
+@app.route('/zk/')
+def zettelkastens():
+    template = os.path.join('content', 'zettelkasten', 'index.html')
+
+    return render_template(template)
+
+@app.route('/zk/<path:path>')
+def zettelkasten(path):
+    template = os.path.join('content', 'zettelkasten', path)
+
+    return render_template(template)
+
+@app.route('/recipes/')
 def recipes():
-    return render_template('recipes.html', title='recipes')
+
+    template = os.path.join('content', 'recipes', 'index.html')
+
+    return render_template(template)
+
+@app.route('/recipes/<path:path>')
+def recipe(path):
+
+    template = os.path.join('content', 'recipes', path)
+
+    return render_template(template)
+
+@app.route('/api')
+def apis():
+    return render_template('apis.html')
+
 
 @app.route('/todo')
 def todo():
-    return render_template('todo.html', title='todo', todo=db.todo)
+    return render_template('todo.html')
 
 @app.route('/hiring')
 def hiring():
-    return render_template('hire_me.html', title='hire me')
+    return render_template('hireme.html')

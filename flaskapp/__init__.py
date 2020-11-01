@@ -10,6 +10,6 @@ app.config.from_object(Config)
 
 from . import models
 
-db = models.Database()
+db = models.MockDatabase(app.config.get('META_PATH'))
 
 from . import routes

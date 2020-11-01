@@ -28,6 +28,10 @@ table {
     width: 30rem;
 }
 
+.recipe-card {
+    width: 30rem;
+}
+
 a:link {
     color: blue;
     }

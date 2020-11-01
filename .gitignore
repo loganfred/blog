@@ -1,12 +1,5 @@
 __pycache__
 *.swp
 venv
-flaskapp/articles/*.html
-flaskapp/articles/src/*.md
-flaskapp/articles/src/assets/*.jpg
-flaskapp/recipes/*.html
-flaskapp/recipes/src/*.md
-flaskapp/todo/*.html
-flaskapp/todo/src/*.md
-flaskapp/zettelkasten/*.html
-flaskapp/zettelkasten/src/*.md
+flaskapp/content
+.DS_Store

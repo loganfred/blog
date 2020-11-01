@@ -1,5 +1,32 @@
+
 {% extends "base.html" %}
 
 {% block content %}
-    <p> recipe information will go here </p>
+
+    <h1>Recipes</h1>
+    <p>
+    I like following new recipes, but I hate looking a cancerous mobile sites.
+    Here is my collection of recipes. No images. No ads. No long drawn-out
+    family anecdotes.
+    </p>
+    <p>
+    Just ingredients, steps (with quantities of ingredients in the text!), and
+    a link to the original source.
+    </p>
+    <div class="row">
+    {% for recipe in recipes %}
+        <div class="col-auto mb-3">
+            <div class="card recipe-card">
+              <div class="card-body">
+                <h5 class="card-title"> {{ recipe['title'] }}</h5>
+                <h5 class="card-subtitle mb-2 text-muted"> {{ recipe['date'] }}</h5>
+                <p class="card-text"> {{ recipe['preview'] | safe }} </p>
+                <a class="btn btn-primary text-light" href="{{ url_for('recipe_read', post=recipe['id'])}}">Read</a>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
 {% endblock %}
+

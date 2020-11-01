@@ -10,7 +10,7 @@
                 <h5 class="card-title"> {{ article['title'] }}</h5>
                 <h5 class="card-subtitle mb-2 text-muted"> {{ article['date'] }}</h5>
                 <p class="card-text"> {{ article['preview'] | safe }} </p>
-                <a class="btn btn-primary text-light" href="{{ url_for('blog_read', post=article['id'])}}">Read</a>
+                <a class="btn btn-primary text-light" href="{{ url_for('article', title=article['title'])}}">Read</a>
               </div>
             </div>
         </div>

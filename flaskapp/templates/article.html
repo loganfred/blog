@@ -2,12 +2,12 @@
 
 {% block head %}
 {{ super() }}
-{{ article.meta|safe }}
-{% endblock %}
+    {% block meta %}
+    {% endblock meta %}
+{% endblock head %}
 
 
 {% block content %}
-    {{ article.content|safe }}
 {% endblock %}
 
 {% block scripts %}
