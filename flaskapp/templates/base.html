@@ -21,27 +21,29 @@
   <body>
   {% from 'bootstrap/nav.html' import render_nav_item %}
 
-  <div class="container">
-  <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-    <div class="navbar-nav nav-fill w-100">
-      {{ render_nav_item('index', 'loganf.com') }}
+  <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-white">
+
+         <a class="navbar-brand" href="{{ url_for('index') }}">
+
+             <img src="{{ url_for('static', filename='logo.png') }}" width="32"
+             height="32" class="d-inline-block align-top" alt="" loading="lazy">
+            loganf.com
+         </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                                   data-target="#navbarText"
+                                                   aria-expanded="false"
+                                                   aria-label="Toggle
+                                                                Navigation">
+
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarText">
       {{ render_nav_item('writings', 'writings') }}
       {{ render_nav_item('zettelkastens', 'zettelkasten') }}
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          other
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="{{ url_for('apis') }}">apis</a>
-          <a class="dropdown-item" href="{{ url_for('recipes') }}">recipes</a>
-          <a class="dropdown-item" href="{{ url_for('todo') }}">todo</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('hiring') }}">hire me</a>
-        </div>
+      <a class="nav-item nav-link " href="https://github.com/loganfred"> github </a>
       </div>
-    </div>
   </nav>
-  </div>
 
   <div class="container maincontent px-md-5">
     {% block content %}{% endblock %}
