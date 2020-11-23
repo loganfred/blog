@@ -35,7 +35,7 @@ def convert(
     with open(input_file, "r", encoding="utf8") as f:
         lines = f.read()
 
-    lines = re.sub(r"\[([^]]+)\]\((.+)\)", repl, lines)
+    lines = re.sub(r"[^!]\[([^]]+)\]\((.+)\)", repl, lines)
 
     # Look for title in metadata
     match = re.search(
