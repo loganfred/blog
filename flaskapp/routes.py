@@ -3,8 +3,6 @@ from flask import render_template
 import os
 
 from . import app
-from . import db
-from .models import meta_from_dict
 
 @app.route('/')
 @app.route('/index')
