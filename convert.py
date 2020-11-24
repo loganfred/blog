@@ -8,6 +8,8 @@ import shutil
 import sys
 import re
 
+# based on source visible at https://github.com/vimwiki/vimwiki/issues/642
+
 def convert(
     force,
     syntax,
