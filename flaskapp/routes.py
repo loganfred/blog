@@ -37,29 +37,6 @@ def zettelkasten(path):
 
     return render_template(template)
 
-@app.route('/recipes/')
-def recipes():
-
-    template = os.path.join('content', 'recipes', 'index.html')
-
-    return render_template(template)
-
-@app.route('/recipes/<path:path>')
-def recipe(path):
-
-    template = os.path.join('content', 'recipes', path)
-
-    return render_template(template)
-
-@app.route('/api')
-def apis():
-    return render_template('apis.html')
-
-
-@app.route('/todo')
-def todo():
-    return render_template('todo.html')
-
 @app.route('/hiring')
 def hiring():
     return render_template('hireme.html')
