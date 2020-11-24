@@ -63,3 +63,7 @@ def todo():
 @app.route('/hiring')
 def hiring():
     return render_template('hireme.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
