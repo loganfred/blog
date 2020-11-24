@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
   {% block head %}
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% if title %}
   <title>{{ title }}</title>
   {% else %}
@@ -44,6 +44,8 @@
       <a class="nav-item nav-link " href="https://github.com/loganfred"> github </a>
       </div>
   </nav>
+  {% block progress %}
+  {% endblock %}
 
   <div class="container maincontent px-md-5">
     {% block content %}{% endblock %}

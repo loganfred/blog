@@ -6,11 +6,31 @@
     {% endblock meta %}
 {% endblock head %}
 
+{% block progress %}
+{{ super() }}
+<div class="progress position-sticky" style="height: 15px; top: 50px;
+    background-color: white; border-radius: 0;">
+  <div class="progress-bar" id="reading-progress" role="progressbar" style="width: 0%;"
+      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>
+{% endblock %}
+
 
 {% block content %}
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
-    <script src="{{ url_for('static', filename='node_modules/progressbar/progressbar.js')}}"></script>
+    <script>
+
+        $(window).scroll( () => {
+
+            var total = $(document).height() - $(window).height()
+            var current = $(document).scrollTop();
+
+            $('#reading-progress').css('width', (100 * current / total) + "%");
+        });
+    </script>
+
 {% endblock %}
