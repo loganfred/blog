@@ -26,3 +26,8 @@ It's a very niche solution to a very niche problem.
    inheritance works in Jinja2.
 
 The ultimate goal here is to use Git hooks to make everything seamless.
+
+## Screenshots
+
+![home](screenshot_home.png)
+![article](screenshot_article.png)
