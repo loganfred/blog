@@ -8,7 +8,15 @@ templates rather than HTML, and displayed using a Flask webserver.
 
 It's a very niche solution to a very niche problem.
 
-## Why so convoluted?
+## overview
+
++ `utils/` holds important scripts
+    + `script.sh` compiles all wikis and syncs (to server)
+    + `convert.py` is the custom HTML compilation script called by Vimwiki
++ `examples` holds the screenshots, an example `.vimrc`, and an example wiki
++ `flaskapp` is, well, the flask application for the webserver
+
+## why so convoluted?
 
 1. I already use Vim and the Vimwiki / Vim-Zettel plugins for organizing all my
    notes, passwords, bookmarks, thoughts, etc. so this part makes my life
@@ -27,8 +35,7 @@ It's a very niche solution to a very niche problem.
 
 The ultimate goal here is to use Git hooks to make everything seamless.
 
-## Screenshots
+## screenshots
 
-![home](screenshot_home.png)
-
-![article](screenshot_article.png)
+![home](examples/screenshot_home.png)
+![article](examples/screenshot_article.png)

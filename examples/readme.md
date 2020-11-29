@@ -24,7 +24,7 @@ might be useful to others.
 4. I use a vanilla Vim key-value pair datastructure to make it a little more
    readable when stuffing all this information into `g:vimwiki_list`
 5. Each wiki uses markdown syntax and compiles using the custom script
-   `convert.py` which is present in the root folder of this project.
+   `utils/convert.py`.
 6. I have included a couple functions. One is a custom `VimwikiLinkHandler` to
    open `vfile:<LINK>` paths in a new tab. Also, I kept in the
    StartSecretFile() function. Sometimes I keep confidential records in my
@@ -44,7 +44,7 @@ into Flask.
    passing custom metadata into the templates.
 2. The `templates` folder houses two templates: one to compile each post into a
    Jinja2 HTML template, and another to only catch metadata in the form of a
-   JSON. These are both Pandoc templates and are found by `convert.py` when
+   JSON. These are both Pandoc templates and are found by `utils/convert.py` when
    each post is compiled from markdown into Jinja2 HTML templates. This is
    really just a lazy way of building a NoSQL database of all metadata. At
    present posts are just served basically like static webpages, but eventually
