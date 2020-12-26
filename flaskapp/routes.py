@@ -35,10 +35,6 @@ def zettelkasten(path):
 
     return render_template(template)
 
-@app.route('/hiring')
-def hiring():
-    return render_template('hireme.html')
-
 @app.route('/about')
 def about():
     return render_template('about.html')
