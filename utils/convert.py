@@ -101,8 +101,18 @@ def convert(
 
 
 def repl(match):
-    link = path.splitext(match.group(2))[0] + ".html"
-    return "[{}]({})".format(match.group(1), link)
+
+    '''
+    convert internal links (these may not have file extensions) to point to
+    html files. do not modify external links, which will not have a file
+    extension but probably end in a slash.
+    '''
+    link, ext = path.splitext(match.group(2))
+
+    if ext in ['', '.md'] and link[-1] != '/':
+        return "[{}]({})".format(match.group(1), link + '.html')
+    else:
+        return "[{}]({})".format(match.group(1), match.group(2))
 
 
 if __name__ == "__main__":
