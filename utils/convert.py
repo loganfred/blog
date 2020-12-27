@@ -107,12 +107,21 @@ def repl(match):
     html files. do not modify external links, which will not have a file
     extension but probably end in a slash.
     '''
-    link, ext = path.splitext(match.group(2))
+    text = match.group(1)
+    link = match.group(2)
 
-    if ext in ['', '.md'] and link[-1] != '/':
-        return "[{}]({})".format(match.group(1), link + '.html')
-    else:
-        return "[{}]({})".format(match.group(1), match.group(2))
+    # ignore external links as determined with terminating '/'
+    if link[-1] != '/':
+
+        # convert markdown to html
+        if '.md' in link:
+            link = link.replace('.md', '.html')
+
+        # append in implicit file extension case
+        else:
+            link = link + '.html'
+
+    return f'[{text}]({link})'
 
 
 if __name__ == "__main__":
