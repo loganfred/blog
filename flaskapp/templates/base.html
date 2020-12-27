@@ -14,6 +14,7 @@
   {{ bootstrap.load_css() }}
   {{ render_static('css', 'css/main.css') }}
   {{ render_static('css', 'https://fonts.googleapis.com/css?family=Libre-Baskerville', local=False) }}
+  {{ render_static('css', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/stackoverflow-light.min.css', local=False) }}
   {% endblock %}
 
   {% endblock %}
@@ -53,6 +54,8 @@
 
   {% block scripts %}
   {{ bootstrap.load_js() }}
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   {% endblock %}
 
   </body>
