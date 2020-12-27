@@ -121,7 +121,7 @@ def repl(match):
         else:
             link = link + '.html'
 
-    return f'[{text}]({link})'
+    return f' [{text}]({link})'
 
 
 if __name__ == "__main__":
